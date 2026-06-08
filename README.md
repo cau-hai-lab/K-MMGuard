@@ -1,10 +1,10 @@
-# ECSO GPTQ Evaluation on MLLMJailbreak-ko
+# K-MMGuard
 
-This repository contains the code, scripts, configuration, and report artifacts needed to reproduce the GPTQ-ECSO defense evaluation on `HAI-Lab/MLLMJailbreak-ko`.
+K-MMGuard is a Korean multimodal safety evaluation and defense pipeline for `HAI-Lab/MLLMJailbreak-ko`. This repository contains the code, scripts, configuration, and report artifacts needed to reproduce the GPTQ-based TELL detection, conditional repair, and baseline comparison experiments.
 
 ## What This Experiment Does
 
-The evaluation compares a baseline VL model response against the same sample after the ECSO defense pipeline.
+The evaluation compares a baseline VL model response against the same sample after the K-MMGuard defense pipeline.
 
 ```text
 prepare
@@ -168,7 +168,7 @@ The comparison is made inside the same output directory:
 
 ```text
 baseline.jsonl  original target model responses
-defended.jsonl  final responses after GPTQ TELL and conditional repair
+defended.jsonl  final responses after K-MMGuard GPTQ TELL and conditional repair
 judged.jsonl    WildGuard-KO judgments for both responses
 summary.csv     aggregate comparison
 ```
@@ -242,4 +242,3 @@ SIAttack  baseline ASR 13.99% -> defended ASR  9.99%
 Raw JSONL outputs can contain harmful model responses. This repo includes summary metrics and redacted reports, while raw files should be regenerated locally when needed.
 
 The original run did not quantize the target model during evaluation. The target/original AXVL model generated baseline and repair responses. The prebuilt GPTQ model was used only for TELL unsafe detection.
-

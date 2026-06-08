@@ -1,6 +1,6 @@
 # Model Weights
 
-This repository contains the code and metadata needed to reproduce the GPTQ-ECSO evaluation. Large model weights are handled separately because the GPTQ checkpoint is about 15 GB and individual `safetensors` shards exceed normal GitHub file limits.
+This repository contains the code and metadata needed to reproduce the K-MMGuard GPTQ evaluation. Large model weights are handled separately because the GPTQ checkpoint is about 15 GB and individual `safetensors` shards exceed normal GitHub file limits.
 
 ## Required Models
 
@@ -64,4 +64,3 @@ cp weights/axvl_gptq_llm_w4g128_v2_metadata/* gptq_/outputs/axvl_gptq_llm_w4g128
 git add .gitattributes gptq_/outputs/axvl_gptq_llm_w4g128_v2
 git commit -m "Add GPTQ TELL checkpoint with Git LFS"
 ```
-

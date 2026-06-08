@@ -1,11 +1,11 @@
-# MLLMJailbreak-ko ECSO GPTQ v2 10% Evaluation Report
+# K-MMGuard 10% Evaluation Report
 
 작성일: 2026-06-08  
 결과 디렉터리: `outputs/mllmjailbreak_ko_ecso_gptq_v2_multi_gpu_10pct`
 
 ## 1. 실험 요약
 
-본 실험은 `HAI-Lab/MLLMJailbreak-ko` 데이터셋에서 전체 데이터의 약 10%를 사용해, A.X-4.0-VL-Light 모델의 jailbreak 공격 성공률과 ECSO 기반 방어 적용 후의 공격 성공률 변화를 평가한 것이다.
+본 실험은 `HAI-Lab/MLLMJailbreak-ko` 데이터셋에서 전체 데이터의 약 10%를 사용해, A.X-4.0-VL-Light 모델의 jailbreak 공격 성공률과 K-MMGuard 방어 적용 후의 공격 성공률 변화를 평가한 것이다.
 
 평가는 기존 프로젝트의 멀티 GPU 평가 파이프라인을 그대로 사용했다. 입력은 이미지 단독이 아니라, 데이터셋에서 추출한 `prompt`와 해당 `image`를 함께 모델에 넣는 방식이다. 공격 방법은 `FigStep`, `MML`, `SIAttack`으로 구분했고, 각 method 내부 variant까지 분리해서 결과를 산출했다.
 
@@ -30,7 +30,7 @@
 | 평가 비율 | 약 10% |
 | 평가 언어 | Korean |
 | Target model | `skt/A.X-4.0-VL-Light` |
-| ECSO tell model | `gptq_/outputs/axvl_gptq_llm_w4g128_v2` |
+| K-MMGuard GPTQ tell model | `gptq_/outputs/axvl_gptq_llm_w4g128_v2` |
 | Judge model | `/data2/AAAI/AAAI_models/hai_zero/qwen25vl_7b/models/llama-3.2-3B-wildguard-ko-2410` |
 | Image root | `/data2/AAAI/AAAI_models` |
 | GPUs | `4,5,6,7` |
@@ -235,8 +235,8 @@ outputs/mllmjailbreak_ko_ecso_gptq_v2_multi_gpu_10pct/shards/shard_3
 
 ## 11. 결론
 
-전체 데이터의 10%인 4,355개 샘플에 대해 MLLMJailbreak-ko 공격 평가를 수행한 결과, ECSO GPTQ v2 방어는 전체 ASR을 24.09%에서 20.99%로 낮췄다. 절대 감소폭은 3.10%p이며, baseline unsafe 샘플 기준 방어 성공률은 13.54%다.
+전체 데이터의 10%인 4,355개 샘플에 대해 MLLMJailbreak-ko 공격 평가를 수행한 결과, K-MMGuard 방어는 전체 ASR을 24.09%에서 20.99%로 낮췄다. 절대 감소폭은 3.10%p이며, baseline unsafe 샘플 기준 방어 성공률은 13.54%다.
 
 방어 효과는 attack method에 따라 다르게 나타났다. `SIAttack`에서는 baseline unsafe 대비 방어 성공률이 가장 높았고, `FigStep`에서는 ASR 감소가 관찰되었지만 여전히 방어 후 ASR이 높았다. `MML`은 ECSO 탐지율이 낮아 실질적인 방어 효과가 제한적이었다.
 
-따라서 현재 설정의 ECSO GPTQ v2는 일부 공격 유형, 특히 SIAttack과 FigStep 일부 variant에서 유의미한 ASR 감소를 보였지만, MML 계열과 FigStep/step_aug 같은 고난도 variant에서는 추가적인 탐지 또는 repair 개선이 필요하다.
+따라서 현재 설정의 K-MMGuard는 일부 공격 유형, 특히 SIAttack과 FigStep 일부 variant에서 유의미한 ASR 감소를 보였지만, MML 계열과 FigStep/step_aug 같은 고난도 variant에서는 추가적인 탐지 또는 repair 개선이 필요하다.
