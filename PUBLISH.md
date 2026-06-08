@@ -10,7 +10,7 @@ Then create a new repository under `cau-hai-lab` and push:
 
 ```bash
 cd /data2/AAAI/hai_mw/projects/ECSO/release/ecso-gptq-mllmjailbreak-ko
-gh repo create cau-hai-lab/ecso-gptq-mllmjailbreak-ko \
+gh repo create cau-hai-lab/K-MMGuard \
   --private \
   --source=. \
   --remote=origin \
@@ -35,4 +35,3 @@ git push
 ```
 
 Check the organization's Git LFS quota before pushing the checkpoint.
-
