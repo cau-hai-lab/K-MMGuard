@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.env
+.venv/
+outputs/
+hf_cache/
+*.log
+
+# Large model checkpoints are not committed by default.
+# Use Git LFS and explicit approval before publishing them.
+gptq_/outputs/
+!gptq_/outputs/.gitkeep
+
+# Raw evaluation JSONL can contain harmful model responses.
+# The public repo keeps summaries/reports only.
+results/**/selected.jsonl
+results/**/baseline.jsonl
+results/**/tell.jsonl
+results/**/defended.jsonl
+results/**/judged.jsonl
+results/**/samples.csv
+

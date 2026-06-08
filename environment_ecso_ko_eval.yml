@@ -1,0 +1,29 @@
+name: ecso-ko-eval
+variables:
+  PYTHONNOUSERSITE: "1"
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pytorch>=2.4
+  - torchvision
+  - pytorch-cuda=12.1
+  - pip:
+      - accelerate>=0.30
+      - datasets>=2.19
+      - pillow>=10
+      - packaging
+      - psutil
+      - protobuf
+      - python-dateutil
+      - safetensors>=0.4
+      - sentencepiece
+      - six
+      - tqdm>=4.66
+      - transformers==4.53.2
+      - typing-extensions
+      - einops
+      - timm
